@@ -6,7 +6,7 @@
 /*   By: wcaetano <wcaetano@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:09:10 by wcaetano          #+#    #+#             */
-/*   Updated: 2022/05/21 13:11:00 by wcaetano         ###   ########.fr       */
+/*   Updated: 2022/05/21 17:19:50 by wcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,23 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
+	char			buf[50];
+	unsigned int	tmp;
+	int				i;
 
-	str = ft_itoa(n);
-	write(fd, str, ft_strlen(str));
-	free(str);
+	i = 0;
+	if (n < 0)
+	{
+		tmp = -n;
+		write(fd, "-", 1);
+	}
+	else
+		tmp = n;
+	while (tmp)
+	{
+		buf[i++] = (tmp % 10) + '0';
+		tmp /= 10;
+	}
+	while (i--)
+		write(fd, buf + i, 1);
 }
