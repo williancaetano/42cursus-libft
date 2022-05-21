@@ -6,7 +6,7 @@
 /*   By: wcaetano <wcaetano@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 23:57:16 by root              #+#    #+#             */
-/*   Updated: 2022/05/21 13:07:39 by wcaetano         ###   ########.fr       */
+/*   Updated: 2022/05/21 19:13:24 by wcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = *lst;
-	*lst = new;
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
