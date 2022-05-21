@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcaetano <wcaetano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wcaetano <wcaetano@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 10:58:09 by wcaetano          #+#    #+#             */
-/*   Updated: 2022/05/07 11:04:17 by wcaetano         ###   ########.fr       */
+/*   Updated: 2022/05/21 13:07:45 by wcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return (ft_isalpha(c) && ft_isdigit(c));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

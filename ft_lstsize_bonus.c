@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wcaetano <wcaetano@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/07 17:01:01 by wcaetano          #+#    #+#             */
+/*   Created: 2022/05/21 13:08:26 by wcaetano          #+#    #+#             */
 /*   Updated: 2022/05/21 13:11:00 by wcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lstsize(t_list *lst)
 {
-	while (*s)
+	int	size;
+
+	size = 0;
+	while (lst)
 	{
-		if (*s == (char) c)
-			return ((char *) s);
-		s++;
+		size++;
+		lst = lst->next;
 	}
-	if (!c)
-		return ((char *) s);
-	return (NULL);
+	return (size);
 }

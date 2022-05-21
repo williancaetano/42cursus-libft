@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: WCAETANO <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wcaetano <wcaetano@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 10:45:03 by WCAETANO          #+#    #+#             */
-/*   Updated: 2022/05/07 13:58:57 by wcaetano         ###   ########.fr       */
+/*   Updated: 2022/05/21 13:07:44 by wcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int	ft_isalpha(int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	if (c > UCHAR_MAX)
+		return (0);
+	return (((unsigned char) c >= 'a' && (unsigned char) c <= 'z')
+		|| ((unsigned char) c >= 'A' && (unsigned char) c <= 'Z'));
 }

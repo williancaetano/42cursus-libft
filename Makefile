@@ -3,47 +3,45 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wcaetano <wcaetano@student.42.fr>          +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/07 14:02:27 by wcaetano          #+#    #+#              #
-#    Updated: 2022/05/07 14:20:39 by wcaetano         ###   ########.fr        #
+#    Updated: 2022/05/21 12:45:53 by wcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET_EXEC := run
+SRCS := ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
+		ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
+		ft_putchar_fd.c ft_putendl_fd.c ft_putstr_fd.c  ft_strchr.c ft_strdup.c ft_striteri.c \
+		ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_substr.c \
+		ft_tolower.c ft_toupper.c ft_split.c ft_strtrim.c ft_itoa.c ft_putnbr_fd.c ft_strjoin.c
 
-BUILD_DIR := ./
-SRC_DIRS := ./
+BONUS_SRCS := ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-# Find all the C and C++ files we want to compile
-# Note the single quotes around the * expressions. Make will incorrectly expand these otherwise.
-SRCS := $(shell find $(SRC_DIRS) -name '*.c')
+OBJS := $(SRCS:.c=.o)
 
-OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
+BONUS_OBJS := $(BONUS_SRCS:.c=.o)
 
-DEPS := $(OBJS:.o=.d)
-
-INC_DIRS := $(shell find $(SRC_DIRS) -type d)
-# Add a prefix to INC_DIRS. So moduleA would become -ImoduleA. GCC understands this -I flag
-INC_FLAGS := $(addprefix -I,$(INC_DIRS))
-
-CPPFLAGS := $(INC_FLAGS) -MMD -MP
+NAME := libft.a
 
 CFLAGS := -Wall -Wextra -Werror
-# The final build step.
-$(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
-	$(CC) $(OBJS) -o $@ $(LDFLAGS)
+CC := gcc
 
-# Build step for C source
-$(BUILD_DIR)/%.c.o: %.c
-	mkdir -p $(dir $@)
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+all: $(NAME)
 
-.PHONY: clean
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BONUS_OBJS) 
+	ar rcs $(NAME) $(BONUS_OBJS)
+
 clean:
-	rm -r $(OBJS) $(DEPS)
+	rm -f $(OBJS) $(BONUS_OBJS)
+	
+fclean: clean
+	rm -f $(NAME)
 
-# Include the .d makefiles. The - at the front suppresses the errors of missing
-# Makefiles. Initially, all the .d files will be missing, and we don't want those
-# errors to show up.
--include $(DEPS)
+re: fclean all
+
+.PHONY: all clean fclean re
