@@ -6,7 +6,7 @@
 /*   By: wcaetano <wcaetano@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 11:34:23 by wcaetano          #+#    #+#             */
-/*   Updated: 2022/05/21 13:37:38 by wcaetano         ###   ########.fr       */
+/*   Updated: 2022/06/04 12:03:48 by wcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <limits.h>
 
 typedef struct s_list
 {
