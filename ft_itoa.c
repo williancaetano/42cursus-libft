@@ -6,7 +6,7 @@
 /*   By: wcaetano <wcaetano@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 20:03:00 by wcaetano          #+#    #+#             */
-/*   Updated: 2022/05/21 13:07:40 by wcaetano         ###   ########.fr       */
+/*   Updated: 2022/06/04 11:49:44 by wcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ char	*ft_itoa(int n)
 	buffer_size = get_buffer_size(n);
 	buffer = malloc(buffer_size);
 	if (!buffer)
-	{
-		free(buffer);
 		return (NULL);
-	}
 	ft_memset(buffer, '0', buffer_size);
 	buffer[--buffer_size] = '\0';
 	if (n < 0)

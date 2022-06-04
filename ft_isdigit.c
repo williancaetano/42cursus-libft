@@ -6,7 +6,7 @@
 /*   By: wcaetano <wcaetano@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 10:58:36 by wcaetano          #+#    #+#             */
-/*   Updated: 2022/05/21 13:07:43 by wcaetano         ###   ########.fr       */
+/*   Updated: 2022/06/04 11:47:18 by wcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isdigit(int c)
 {
-	if (c > UCHAR_MAX)
-		return (0);
 	return (c >= '0' && c <= '9');
 }
